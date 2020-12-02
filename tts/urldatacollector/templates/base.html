@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Url Data Collector</title>
+  <meta charset="utf-8">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="{% static 'urldatacollector/css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    {% if datas %}
+      <table class="table">
+        <thead>
+          <tr>
+              <th>Site Url</th>
+              <th>Count</th>
+              <th>Date Updated</th>
+              <th>Date Added</th>
+            </tr>
+        </thead>
+          <tbody>
+          {% for data in datas %}
+            <tr>
+              <td>{{ data.url }}</td>
+              <td>{{ data.count }}</td>
+              <td>{{ data.date_updated }}</td>
+              <td>{{ data.date_added }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+    {% else %}
+        <p>No data available.</p>
+    {% endif %}
+  </div>
+</body>
+</html>
